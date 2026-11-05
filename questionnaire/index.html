@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>MTN Business · Votre avis compte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFCB05;--k:#1D1D1B;--b:#006E96;--g:#F6F5F1;--l:#E8E6DF;--t:#55534E;--ok:#1E9E6A;--ko:#D64545;--mid:#F2A900}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',Arial,sans-serif;background:var(--g);color:var(--k);min-height:100vh}
+.demo{background:var(--k);color:#fff;text-align:center;font-size:12px;padding:6px 10px;letter-spacing:.3px}
+header{background:var(--y);padding:22px 20px 70px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;right:-80px;top:-60px;width:320px;height:320px;border-radius:50%;border:38px solid rgba(29,29,27,.06)}
+.top{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.top img{height:46px}
+.top .tag{font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;border-left:2px solid var(--k);padding-left:14px}
+.hero{max-width:760px;margin:26px auto 0;position:relative;z-index:1}
+.hero h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;line-height:1.15}
+.hero p{margin-top:10px;font-size:16px;max-width:560px;line-height:1.55}
+.chips{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.55);border-radius:30px;padding:7px 14px;font-size:13px;font-weight:600}
+main{max-width:760px;margin:-46px auto 40px;padding:0 16px;position:relative;z-index:2}
+.card{background:#fff;border-radius:22px;box-shadow:0 12px 40px rgba(29,29,27,.08);padding:30px 30px 26px}
+.prog{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.bar{flex:1;height:8px;background:var(--l);border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--k);border-radius:8px;transition:width .35s}
+.prog span{font-size:13px;font-weight:700;color:var(--t);min-width:54px;text-align:right}
+.step{display:none;animation:in .35s ease}
+.step.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--b);margin-bottom:8px}
+.eyebrow b{background:var(--y);color:var(--k);width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;font-size:12px}
+h2{font-size:22px;line-height:1.3;margin-bottom:6px}
+.hint{color:var(--t);font-size:14px;margin-bottom:18px;line-height:1.5}
+.q{margin-top:24px}
+.q label.t{display:block;font-weight:700;font-size:15px;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{border:1.5px solid var(--l);border-radius:14px;padding:11px 15px;cursor:pointer;font-size:14px;font-weight:600;background:#fff;transition:.15s;display:flex;align-items:center;gap:8px;user-select:none}
+.opt:hover{border-color:var(--k)}
+.opt.sel{background:var(--k);color:#fff;border-color:var(--k)}
+.opt .ic{font-size:18px}
+.nps{display:grid;grid-template-columns:repeat(11,1fr);gap:6px}
+.nps button{aspect-ratio:1;border:0;border-radius:12px;font:700 16px 'Plus Jakarta Sans';cursor:pointer;transition:.15s}
+.nps button:nth-child(-n+7){background:#FBE3E3}
+.nps button:nth-child(n+8):nth-child(-n+9){background:#FFF1C2}
+.nps button:nth-child(n+10){background:#D9F2E6}
+.nps button.sel{background:var(--k);color:#fff;transform:scale(1.08)}
+.npsl{display:flex;justify-content:space-between;font-size:12px;color:var(--t);margin-top:8px}
+.grid{width:100%;border-collapse:separate;border-spacing:0 8px}
+.grid td{padding:10px 8px;font-size:14px;background:var(--g)}
+.grid td:first-child{border-radius:12px 0 0 12px;font-weight:600;padding-left:14px;width:42%}
+.grid td:last-child{border-radius:0 12px 12px 0}
+.faces{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap}
+.faces span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:20px;cursor:pointer;background:#fff;border:1.5px solid var(--l);transition:.15s;filter:grayscale(1);opacity:.75}
+.faces span:hover{filter:none;opacity:1}
+.faces span.sel{filter:none;opacity:1;border-color:var(--k);transform:scale(1.12);background:var(--y)}
+.scale7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.scale7 button{padding:12px 0;border:1.5px solid var(--l);background:#fff;border-radius:12px;font:700 15px 'Plus Jakarta Sans';cursor:pointer}
+.scale7 button.sel{background:var(--k);color:#fff;border-color:var(--k)}
+textarea,input[type=text],input[type=email],input[type=tel]{width:100%;border:1.5px solid var(--l);border-radius:14px;padding:13px 15px;font:500 15px 'Plus Jakarta Sans';background:#fff;outline:none}
+textarea{min-height:110px;resize:vertical}
+textarea:focus,input:focus{border-color:var(--k)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:30px;gap:12px}
+.btn{border:0;border-radius:40px;padding:14px 26px;font:700 15px 'Plus Jakarta Sans';cursor:pointer;transition:.15s}
+.btn.p{background:var(--y);color:var(--k)}
+.btn.p:hover{background:#ffd633;transform:translateY(-1px)}
+.btn.s{background:transparent;color:var(--t)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.cond{display:none}
+.cond.on{display:block}
+.thanks{text-align:center;padding:20px 0 6px}
+.thanks .big{font-size:60px}
+.thanks h2{font-size:28px;margin:10px 0}
+.foot{text-align:center;color:var(--t);font-size:12px;margin-top:22px;line-height:1.6}
+.privacy{display:flex;gap:10px;align-items:flex-start;background:var(--g);border-radius:14px;padding:14px;font-size:13px;color:var(--t);margin-top:18px;line-height:1.5}
+.err{color:var(--ko);font-size:13px;margin-top:10px;display:none}
+@media(max-width:560px){.card{padding:22px 18px}.nps{grid-template-columns:repeat(6,1fr)}.grid td:first-child{width:auto}.grid tr{display:flex;flex-direction:column}.grid td{border-radius:0!important}.grid td:first-child{border-radius:12px 12px 0 0!important}.grid td:last-child{border-radius:0 0 12px 12px!important}.faces{justify-content:flex-start}.row2{grid-template-columns:1fr}.scale7 button{padding:10px 0}}
+</style>
+</head>
+<body>
+<div class="demo">Version de démonstration · les réponses saisies ici ne sont pas transmises</div>
+<header>
+  <div class="top"><img src="../mtn-logo.svg" alt="MTN"><div class="tag">MTN Business</div></div>
+  <div class="hero">
+    <h1>Comment se passe votre expérience avec MTN Business ?</h1>
+    <p>Quelques minutes pour nous dire ce qui marche et ce qui doit changer. Chaque réponse est lue par nos équipes.</p>
+    <div class="chips"><span class="chip">⏱ 4 minutes</span><span class="chip">🔒 Réponses confidentielles</span><span class="chip">📋 12 questions</span></div>
+  </div>
+</header>
+<main>
+<div class="card">
+  <div class="prog"><div class="bar"><i id="pb"></i></div><span id="pt">1 / 5</span></div>
+
+  <!-- ÉTAPE 1 : profil -->
+  <section class="step on" data-s="1">
+    <div class="eyebrow"><b>1</b> Votre entreprise</div>
+    <h2>Pour commencer, quelques repères</h2>
+    <p class="hint">Ces informations nous aident à comprendre les besoins propres à chaque type d'entreprise.</p>
+    <div class="q"><label class="t">Quels services MTN Business utilisez-vous ? <small style="font-weight:500;color:var(--t)">(plusieurs choix possibles)</small></label>
+      <div class="opts multi" data-k="services">
+        <div class="opt" data-v="Fibre / Internet fixe"><span class="ic">🌐</span>Fibre / Internet fixe</div>
+        <div class="opt" data-v="Flotte mobile"><span class="ic">📱</span>Flotte mobile</div>
+        <div class="opt" data-v="Y'ello PME"><span class="ic">💼</span>Pack Y'ello PME</div>
+        <div class="opt" data-v="MoMo Business"><span class="ic">💳</span>MoMo Pay, paiement de masse, encaissement</div>
+        <div class="opt" data-v="Cloud et Microsoft 365"><span class="ic">☁️</span>Cloud, messagerie, Microsoft 365</div>
+        <div class="opt" data-v="SMS Cloud"><span class="ic">✉️</span>SMS professionnels</div>
+        <div class="opt" data-v="Autre"><span class="ic">➕</span>Autre</div>
+      </div></div>
+    <div class="q"><label class="t">Combien de personnes travaillent dans votre entreprise ?</label>
+      <div class="opts single" data-k="taille">
+        <div class="opt" data-v="1 à 9">1 à 9</div><div class="opt" data-v="10 à 49">10 à 49</div><div class="opt" data-v="50 à 249">50 à 249</div><div class="opt" data-v="250 et plus">250 et plus</div>
+      </div></div>
+    <div class="q"><label class="t">Depuis combien de temps êtes-vous client MTN Business ?</label>
+      <div class="opts single" data-k="anciennete">
+        <div class="opt" data-v="Moins d'un an">Moins d'un an</div><div class="opt" data-v="1 à 3 ans">1 à 3 ans</div><div class="opt" data-v="Plus de 3 ans">Plus de 3 ans</div>
+      </div></div>
+  </section>
+
+  <!-- ÉTAPE 2 : recommandation -->
+  <section class="step" data-s="2">
+    <div class="eyebrow"><b>2</b> Recommandation</div>
+    <h2>Recommanderiez-vous MTN Business à un partenaire ou à un confrère chef d'entreprise ?</h2>
+    <p class="hint">0 = pas du tout probable · 10 = tout à fait probable</p>
+    <div class="nps" id="nps"></div>
+    <div class="npsl"><span>Pas du tout probable</span><span>Tout à fait probable</span></div>
+    <div class="q"><label class="t" id="whyL">Qu'est-ce qui explique principalement votre note ?</label>
+      <textarea id="why" placeholder="Dites-le avec vos mots…"></textarea></div>
+  </section>
+
+  <!-- ÉTAPE 3 : dimensions -->
+  <section class="step" data-s="3">
+    <div class="eyebrow"><b>3</b> Votre expérience</div>
+    <h2>Quel est votre niveau de satisfaction sur chacun de ces points ?</h2>
+    <p class="hint">😡 très insatisfait · 🤩 très satisfait. Laissez vide ce qui ne vous concerne pas.</p>
+    <table class="grid" id="dims"></table>
+  </section>
+
+  <!-- ÉTAPE 4 : effort, incidents, avenir -->
+  <section class="step" data-s="4">
+    <div class="eyebrow"><b>4</b> Au quotidien</div>
+    <h2>Quand vous avez besoin de nous</h2>
+    <div class="q"><label class="t">Avez-vous rencontré un incident ou fait une réclamation ces 3 derniers mois ?</label>
+      <div class="opts single" data-k="incident">
+        <div class="opt" data-v="Oui">Oui</div><div class="opt" data-v="Non">Non</div>
+      </div></div>
+    <div class="q cond" id="condInc"><label class="t">Ce problème a-t-il été résolu ?</label>
+      <div class="opts single" data-k="resolu">
+        <div class="opt" data-v="Oui, rapidement">✅ Oui, rapidement</div><div class="opt" data-v="Oui, mais trop lentement">⏳ Oui, mais trop lentement</div><div class="opt" data-v="Non, pas encore">❌ Non, pas encore</div>
+      </div></div>
+    <div class="q"><label class="t">« MTN Business m'a facilité la résolution de mes demandes. »</label>
+      <p class="hint" style="margin:-4px 0 10px">1 = pas du tout d'accord · 7 = tout à fait d'accord</p>
+      <div class="scale7" id="ces"></div></div>
+    <div class="q"><label class="t">À l'échéance de votre contrat, que comptez-vous faire ?</label>
+      <div class="opts single" data-k="avenir">
+        <div class="opt" data-v="Étendre nos services MTN">🚀 Étendre nos services MTN</div>
+        <div class="opt" data-v="Renouveler à l'identique">🔁 Renouveler à l'identique</div>
+        <div class="opt" data-v="Je ne sais pas encore">🤔 Je ne sais pas encore</div>
+        <div class="opt" data-v="Réduire ou changer d'opérateur">↘️ Réduire ou changer d'opérateur</div>
+      </div></div>
+    <div class="q"><label class="t">Si MTN Business ne devait améliorer qu'une seule chose, ce serait…</label>
+      <div class="opts single" data-k="priorite">
+        <div class="opt" data-v="Stabilité du réseau">Stabilité du réseau</div><div class="opt" data-v="Délai de résolution des incidents">Délai de résolution</div><div class="opt" data-v="Disponibilité de mon interlocuteur">Disponibilité de mon interlocuteur</div><div class="opt" data-v="Clarté des factures">Clarté des factures</div><div class="opt" data-v="Prix">Prix</div><div class="opt" data-v="Délai d'installation">Délai d'installation</div>
+      </div></div>
+  </section>
+
+  <!-- ÉTAPE 5 : contact -->
+  <section class="step" data-s="5">
+    <div class="eyebrow"><b>5</b> Pour finir</div>
+    <h2>Un dernier mot ?</h2>
+    <div class="q"><label class="t">Une suggestion, une remarque, un message pour nos équipes</label>
+      <textarea id="comment" placeholder="Facultatif"></textarea></div>
+    <div class="q"><label class="t">Souhaitez-vous qu'un membre de l'équipe MTN Business vous recontacte au sujet de vos réponses ?</label>
+      <div class="opts single" data-k="recontact">
+        <div class="opt" data-v="Oui">Oui, volontiers</div><div class="opt" data-v="Non">Non merci</div>
+      </div></div>
+    <div class="q cond" id="condCt">
+      <div class="row2">
+        <input type="text" id="societe" placeholder="Entreprise">
+        <input type="text" id="nom" placeholder="Nom et fonction">
+        <input type="tel" id="tel" placeholder="Téléphone">
+        <input type="email" id="mail" placeholder="E-mail">
+      </div></div>
+    <div class="privacy">🔒 <span>Vos réponses servent uniquement à améliorer nos services. Vos coordonnées ne sont utilisées que si vous demandez à être recontacté. Vous pouvez demander leur suppression à tout moment.</span></div>
+  </section>
+
+  <!-- MERCI -->
+  <section class="step" data-s="6">
+    <div class="thanks">
+      <div class="big">🙏</div>
+      <h2>Merci pour votre temps</h2>
+      <p class="hint" style="max-width:440px;margin:0 auto">Vos réponses ont bien été enregistrées. Nos équipes les lisent une à une et reviendront vers vous si vous l'avez demandé.</p>
+      <p style="margin-top:22px;font-weight:700">MTN Business · Côte d'Ivoire</p>
+    </div>
+  </section>
+
+  <div class="err" id="err">Merci de répondre à la question pour continuer.</div>
+  <div class="nav" id="nav">
+    <button class="btn s" id="prev" style="visibility:hidden">← Retour</button>
+    <button class="btn p" id="next">Continuer →</button>
+  </div>
+</div>
+<p class="foot">MTN Côte d'Ivoire · Enquête de satisfaction des clients entreprises</p>
+</main>
+<script>
+// Adresse de collecte : à brancher (formulaire Google ou script de réception). Vide = mode démonstration.
+const COLLECTE_URL = "";
+const R = {services:[]};
+const dims = [
+ ["reseau","📶 Qualité et stabilité du réseau"],
+ ["internet","🌐 Débit et disponibilité d'Internet / Fibre"],
+ ["momo","💳 Fiabilité des services MoMo Business"],
+ ["support","🛠 Réactivité du support technique"],
+ ["commercial","🤝 Disponibilité de votre interlocuteur commercial"],
+ ["facture","🧾 Clarté de la facturation"],
+ ["prix","💰 Rapport qualité-prix"],
+ ["install","⚙️ Délai d'installation et de mise en service"]];
+const faces=["😡","🙁","😐","🙂","🤩"];
+document.getElementById('dims').innerHTML = dims.map(([k,l])=>`<tr><td>${l}</td><td><div class="faces" data-k="${k}">${faces.map((f,i)=>`<span data-v="${i+1}" title="${i+1}/5">${f}</span>`).join('')}</div></td></tr>`).join('');
+document.querySelectorAll('.faces').forEach(g=>g.addEventListener('click',e=>{const s=e.target.closest('span');if(!s)return;g.querySelectorAll('span').forEach(x=>x.classList.remove('sel'));s.classList.add('sel');R[g.dataset.k]=+s.dataset.v}));
+const nps=document.getElementById('nps');
+for(let i=0;i<=10;i++){const b=document.createElement('button');b.textContent=i;b.onclick=()=>{nps.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');R.nps=i;
+ document.getElementById('whyL').textContent = i>=9?"Qu'est-ce que vous appréciez le plus chez MTN Business ?": i>=7?"Que faudrait-il pour que vous nous donniez 9 ou 10 ?":"Qu'est-ce qui vous a déçu ? Nous voulons le corriger."};nps.appendChild(b)}
+const ces=document.getElementById('ces');
+for(let i=1;i<=7;i++){const b=document.createElement('button');b.textContent=i;b.onclick=()=>{ces.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');R.ces=i};ces.appendChild(b)}
+document.querySelectorAll('.opts').forEach(g=>g.addEventListener('click',e=>{const o=e.target.closest('.opt');if(!o)return;const k=g.dataset.k;
+ if(g.classList.contains('multi')){o.classList.toggle('sel');R[k]=[...g.querySelectorAll('.sel')].map(x=>x.dataset.v)}
+ else{g.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');R[k]=o.dataset.v}
+ if(k==='incident')document.getElementById('condInc').classList.toggle('on',R.incident==='Oui');
+ if(k==='recontact')document.getElementById('condCt').classList.toggle('on',R.recontact==='Oui');}));
+let s=1;const N=5;
+const need={1:()=>R.services.length&&R.taille,2:()=>R.nps!==undefined,3:()=>true,4:()=>R.avenir,5:()=>R.recontact};
+function show(){document.querySelectorAll('.step').forEach(x=>x.classList.toggle('on',+x.dataset.s===s));
+ document.getElementById('pb').style.width=(Math.min(s,N)/N*100)+'%';document.getElementById('pt').textContent=s>N?'Terminé':`${s} / ${N}`;
+ document.getElementById('prev').style.visibility=s>1&&s<=N?'visible':'hidden';
+ document.getElementById('next').textContent=s===N?'Envoyer mes réponses ✓':'Continuer →';
+ document.getElementById('nav').style.display=s>N?'none':'flex';document.getElementById('err').style.display='none';window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('next').onclick=async()=>{if(!need[s]()){document.getElementById('err').style.display='block';return}
+ if(s===N){R.pourquoi=document.getElementById('why').value;R.commentaire=document.getElementById('comment').value;
+  ['societe','nom','tel','mail'].forEach(k=>R[k]=document.getElementById(k).value);R.date=new Date().toISOString();
+  R.ref=new URLSearchParams(location.search).get('ref')||'';
+  if(COLLECTE_URL){try{await fetch(COLLECTE_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(R)})}catch(e){}}
+ }
+ s++;show()};
+document.getElementById('prev').onclick=()=>{s--;show()};
+show();
+// note cliquée dans l'e-mail : présélectionnée
+const pn=new URLSearchParams(location.search).get('note');
+if(pn!==null&&+pn>=0&&+pn<=10){nps.children[+pn].click()}
+</script>
+</body>
+</html>
